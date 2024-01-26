@@ -11,14 +11,19 @@ import Pricing from './Pricing'
 import StatsSection from './StatsSection'
 import Testimonials from './Testimonials'
 import Footer from './Footer'
-
+import useAuthStore  from '../zustand/authStore';
+import useRegister from '../zustand/authRegister'
+import Register from './Register'
 
 
 function Home() {
+  const isLoginFormOpen = useAuthStore((state) => state.isLoginFormOpen);
+  const isRegisterFormOpen=useRegister((state)=>state.isRegisterFormOpen)
   return (
     <div>
         <BannerHeader/>
-        <Login/>
+        {isLoginFormOpen&&<Login/>}
+        {isRegisterFormOpen&&<Register/>}
         <BannerBottom/>
         <MiddleSection/>
         <Service/>

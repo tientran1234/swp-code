@@ -5405,7 +5405,6 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1050;
-  display: none;
   overflow: hidden;
   outline: 0;
 }

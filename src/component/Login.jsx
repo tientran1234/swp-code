@@ -1,14 +1,19 @@
 import React from 'react'
+import useAuthStore from '../zustand/authStore';
 
 export default function () {
+	const isLoginFormOpen = useAuthStore((state) => state.isLoginFormOpen);
+	console.log(isLoginFormOpen);
+	const toggleLoginForm = useAuthStore((state) => state.toggleLoginForm);
   return (
+	
     <div>
-        <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog" aria-hidden="true">
+        <div className={`modal fade ${isLoginFormOpen ? 'show' : ''}`}  id="exampleModalCenter1" tabIndex="-1" role="dialog" >
 		<div className="modal-dialog modal-dialog-centered" role="document">
 			<div className="modal-content">
 				<div className="modal-header text-center">
-					<button type="button" className="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
+					<button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleLoginForm}>
+						<span >&times;</span>
 					</button>
 				</div>
 				<div className="modal-body">

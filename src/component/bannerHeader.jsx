@@ -1,4 +1,5 @@
 import React from 'react'
+import {useAuthStore} from '../zustand/authStore';
 import { CiLogin } from "react-icons/ci";
 import { BiRegistered } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
@@ -7,6 +8,8 @@ import { FaPhone } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 export default function BannerHeader() {
+	const toggleLoginForm = useAuthStore((state) => state.toggleLoginForm);
+	
   return (
     <div>
         	<div className="bannerbg-w3l">
@@ -54,12 +57,12 @@ export default function BannerHeader() {
 								</div>
 							
 								<div className="col-4 header-loginw3ls text-lg-right text-center">
-									<a href="#" className="log" data-toggle="modal" data-target="#exampleModalCenter1">
-                                    <CiLogin style={{fontSize:"20px",transform:"translateY(5px)"}} /> Login</a>
+									<p onClick={toggleLoginForm}  className="log" style={{color:"white",cursor:"pointer"}} data-toggle="modal" data-target="#exampleModalCenter1">
+                                    <CiLogin style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Login</p>
 								</div>
 								<div className="col-4 header-loginw3ls">
-									<a href="#" className="log" data-toggle="modal" data-target="#exampleModalCenter2">
-                                    <BiRegistered style={{fontSize:"20px",transform:"translateY(5px)"}} /> Register</a>
+									<p className="log" data-toggle="modal" style={{color:"white",cursor:"pointer"}} data-target="#exampleModalCenter2">
+                                    <BiRegistered style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Register</p>
 								</div>
 							</div>
 						</div>

@@ -1,7 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-function Header() {
+import useRegister from '../../zustand/authRegister';
+import useAuthStore from '../../zustand/authStore';
+import { CiLogin } from "react-icons/ci";
+import { BiRegistered } from "react-icons/bi";
+import { MdEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa";
+function Header(props) {
+	const toggleLoginForm = useAuthStore((state) => state.toggleLoginForm);
+	const toggleRegisterForm=useRegister((state)=>state.toggleRegisterForm)
+	const isRegisterFormOpen=useRegister((state)=>state.isRegisterFormOpen)
+	
   return (
     <div>
         	<div className="bannerbg-w3l bannerbg-w3l-inner">
@@ -13,11 +22,10 @@ function Header() {
 					<div className="row border-bottom py-lg-4 py-3">
 						<div className="col-xl-7 col-lg-6 header_agileits_left">
 							<ul>
+							<li className="mr-3">
+                                <FaPhone style={{fontSize:"20px",transform:"translateY(5px)"}} /> +(010) 221 918 811</li>
 								<li className="mr-3">
-									<i className="fas fa-phone mr-2"></i> +(010) 221 918 811</li>
-								<li>
-									<i className="fas fa-envelope mr-2"></i>
-									<a href="mailto:info@example.com">info@example.com</a>
+                                <MdEmail style={{fontSize:"20px",transform:"translateY(5px)"}} /> info@example.com
 								</li>
 							</ul>
 						</div>
@@ -25,37 +33,16 @@ function Header() {
 							<div className="row">
 								
 								<div className="col-4 w3social-icons">
-									<ul>
-										<li>
-											<a href="#" className="rounded-circle">
-												<i className="fab fa-facebook-f"></i>
-											</a>
-										</li>
-										<li className="px-2">
-											<a href="#" className="rounded-circle">
-												<i className="fab fa-google-plus-g"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" className="rounded-circle">
-												<i className="fab fa-twitter"></i>
-											</a>
-										</li>
-										<li className="pl-2">
-											<a href="#" className="rounded-circle">
-												<i className="fab fa-dribbble"></i>
-											</a>
-										</li>
-									</ul>
+									
 								</div>
 								
 								<div className="col-4 header-loginw3ls text-lg-right text-center">
-									<a href="#" className="log" data-toggle="modal" data-target="#exampleModalCenter1">
-										<i className="fas fa-user mr-2"></i> Login</a>
+									<p  onClick={toggleLoginForm} style ={{color:"white",cursor:"pointer"}} href="#" className="log" data-toggle="modal" data-target="#exampleModalCenter1">
+									<CiLogin style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Login</p>
 								</div>
 								<div className="col-4 header-loginw3ls">
-									<a href="#" className="log" data-toggle="modal" data-target="#exampleModalCenter2">
-										<i className="fas fa-key mr-2"></i> Register</a>
+									<p onClick={toggleRegisterForm} style ={{color:"white",cursor:"pointer"}}  className="log" data-toggle="modal" data-target="#exampleModalCenter2">
+									<BiRegistered style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Register</p>
 								</div>
 							</div>
 						</div>
@@ -79,7 +66,7 @@ function Header() {
 									</a> */}
 								</li>
 								<li className="nav-item mx-xl-4 mx-lg-3 my-lg-0 my-3">
-									<a className="nav-link" href="about.html">About Us</a>
+									<a className="nav-link" href="about.html">About us</a>
 								</li>
 								<li className="nav-item dropdown">
 									<a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -112,7 +99,7 @@ function Header() {
 		<div className="banner-w3ltext about-w3bnr">
 			<div className="container">
 				<h1 className="text-white text-center">
-					<a href="index.html">Home</a> / Portfolio</h1>
+					<a href="index.html">Home</a> / {props.name}</h1>
 			</div>
 		</div>
 	

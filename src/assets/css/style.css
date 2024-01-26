@@ -1577,5 +1577,52 @@ ul.portfolio-area li figure {
         font-size: 15px;
     }
 }
+.log:hover{
+    color:red;
+}
+#team {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    position: relative;
+    background: rgba(0, 0, 0, 0.7); /* Set the background to semi-transparent black */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+    padding: 20px; /* Adjust padding as needed */
+    border-radius: 5px;
+    height: 200px;
 
+  }
+  
+  #demo1_main_image {
+    padding: 0;
+    transition: background-image 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #demo1_main_image:hover #team {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  #team h3,
+  #team p {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: #fff; /* Adjust the color as needed */
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  #team h3 {
+    font-size: 1.5em; /* Adjust the font size as needed */
+  }
+  
+  #team p {
+    font-size: 1em; /* Adjust the font size as needed */
+  }
+  
 /*--//responsive--*/
