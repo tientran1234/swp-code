@@ -6,9 +6,11 @@ import { MdEmail } from "react-icons/md";
 
 import { FaPhone } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import useRegister from '../zustand/authRegister';
 
 export default function BannerHeader() {
 	const toggleLoginForm = useAuthStore((state) => state.toggleLoginForm);
+	const toggleRegisterForm= useRegister((state)=>state.toggleRegisterForm);
 	const [isDropdownVisible, setDropdownVisible] = useState(false);
 	const [isSticky, setSticky] = useState(false);
 	
@@ -88,7 +90,7 @@ export default function BannerHeader() {
                                     <CiLogin style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Login</p>
 								</div>
 								<div className="col-4 header-loginw3ls">
-<p className="log" data-toggle="modal" style={{color:"white",cursor:"pointer"}} data-target="#exampleModalCenter2">
+									<p onClick={toggleRegisterForm} className="log" data-toggle="modal" style={{color:"white",cursor:"pointer"}} data-target="#exampleModalCenter2">
                                     <BiRegistered style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Register</p>
 								</div>
 							</div>
@@ -156,7 +158,7 @@ export default function BannerHeader() {
 					<h4 className="text-uppercase mt-md-3 mt-2 mb-md-4 mb-3">for your home</h4>
 					<p className="text-white">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 						ullamco laboris</p>
-<a href="about.html" className="banner-button btn mt-md-5 mt-4">Know More</a>
+					<a href="about.html" className="banner-button btn mt-md-5 mt-4">Know More</a>
 				</div>
 			</div>
 		</div>

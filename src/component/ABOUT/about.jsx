@@ -5,9 +5,17 @@ import "../../assets/css/bootstrap.css"
 import Information from './information'
 import Team from './Team'
 import Footer from '../Footer'
+import useAuthStore from '../../zustand/authStore'
+import useRegister from '../../zustand/authRegister'
+import Register from '../Register'
+import Login from '../Login'
 function About() {
+  const isLoginFormOpen = useAuthStore((state) => state.isLoginFormOpen);
+  const isRegisterFormOpen=useRegister((state)=>state.isRegisterFormOpen)
   return (
     <div>
+      {isLoginFormOpen&&<Login/>}
+        {isRegisterFormOpen&&<Register/>}
         <Header name="About us"></Header>
         <Information/>
         <Team/>
