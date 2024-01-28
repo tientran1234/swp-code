@@ -1624,5 +1624,16 @@ ul.portfolio-area li figure {
   #team p {
     font-size: 1em; /* Adjust the font size as needed */
   }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color as needed */
+  }
+
+  .navbar-brand span {
+    color: #fff; /* Set the color of the text */
+  }
   
 /*--//responsive--*/
