@@ -29,6 +29,7 @@ function Header(props) {
 		  window.removeEventListener('scroll', handleScroll);
 		};
 	  }, [isSticky]);
+	  
 	
 	return (
 		<div>
@@ -84,7 +85,8 @@ function Header(props) {
 										<span className="sr-only">(current)</span>
 									</a> */}
 										</li>
-										<li className="nav-item mx-xl-4 mx-lg-3 my-lg-0 my-3">
+										<li className={`nav-item mx-xl-4 mx-lg-3 my-lg-0 my-3 ${props.navbar === 'about' ? 'active' : ''}`}>
+									
 											<Link className="nav-link" to="/about">About us</Link>
 
 										</li>
@@ -111,11 +113,13 @@ function Header(props) {
 												</div>
 											)}
 										</li>
-										<li className="nav-item  active mx-xl-4 mx-lg-3 my-lg-0 my-3">
+										<li className={`nav-item mx-xl-4 mx-lg-3 my-lg-0 my-3 ${props.navbar === 'portfolio' ? 'active' : ''}`}>
+										
 											<Link className="nav-link" to="/portfolio">Portfolio</Link>
 
 										</li>
-										<li className="nav-item">
+										<li className={`nav-item  ${props.navbar === 'contact' ? 'active' : ''}`}>
+										
 											<Link className="nav-link" to="/contact">Contact Us</Link>
 										</li>
 									</ul>

@@ -16,7 +16,7 @@ function About() {
     <div>
       {isLoginFormOpen&&<Login/>}
         {isRegisterFormOpen&&<Register/>}
-        <Header name="About us"></Header>
+        <Header name="About us" navbar="about"></Header>
         <Information/>
         <Team/>
         <Footer/>
