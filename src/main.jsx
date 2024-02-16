@@ -4,12 +4,12 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React.Fragment>
     <BrowserRouter>
     
     <App />
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.Fragment>,
 )
 
 // import React from 'react'

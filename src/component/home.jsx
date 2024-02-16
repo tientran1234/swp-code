@@ -26,16 +26,7 @@ function Home() {
   const { scrollY, init, subscribe, unsubscribe } =useScrollY ();
 
     // Gọi hàm init khi component được mount
-    useEffect(() => {
-      init();
-      // Đăng ký lắng nghe sự kiện scroll khi component được mount
-      subscribe();
-
-      // Hủy đăng ký lắng nghe sự kiện khi component unmount
-      return () => {
-        unsubscribe();
-      };
-    }, [init, subscribe, unsubscribe]);
+   
 
     // Hàm để cuộn lên đầu trang khi nhấp vào nút
     const scrollToTop = () => {

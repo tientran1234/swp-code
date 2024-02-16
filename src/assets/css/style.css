@@ -1637,3 +1637,21 @@ ul.portfolio-area li figure {
   }
   
 /*--//responsive--*/
+
+.detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.detail img{
+    width: 100%;
+}
+.swal2-container {
+    z-index: 10000; 
+  }
+  
+.S9gUrf-YoZ4jf{
+    padding: 100px;
+  }

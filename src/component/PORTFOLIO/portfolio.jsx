@@ -7,6 +7,7 @@ import {useAuthStore} from '../../zustand/authStore'
 import Login from '../Login'
 import useRegister from '../../zustand/authRegister'
 import Register from '../Register'
+import Footer from '../Footer'
 
 function Portfolio() {
   const isLoginFormOpen = useAuthStore((state) => state.isLoginFormOpen);
@@ -14,10 +15,11 @@ function Portfolio() {
   return (
     <div>
       
-        <Header name="Portfolio"/>
+        <Header name="Portfolio" navbar="portfolio"/>
         {isLoginFormOpen&&<Login/>}
         {isRegisterFormOpen&&<Register/>}
         <Gallery/>
+        <Footer/>
     </div>
   )
 }

@@ -14,7 +14,7 @@ function Contact() {
     const isRegisterFormOpen=useRegister((state)=>state.isRegisterFormOpen)
   return (
     <div>
-        <Header name="Contact Us"/>
+        <Header name="Contact Us" navbar="contact"/>
         {isLoginFormOpen&&<Login/>}
         {isRegisterFormOpen&&<Register/>}
         <Form/>
