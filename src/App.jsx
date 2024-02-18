@@ -29,7 +29,7 @@ function App() {
           <Route path="/contact" exact element={<Contact />}></Route>
           <Route path="/dashboard" exact element={<Dashboard/>}></Route>
           
-
+        <Route path="/dashboardComment" exact element={<DBComment/>}></Route>
 
         </Routes>
   
