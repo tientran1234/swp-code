@@ -68,6 +68,10 @@ export default function Navbar() {
     const dopen =useAppStore((state)=>state.dopen);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const handleLogout=()=>{
+    localStorage.removeItem("token");
+    window.location.reload();
+}
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -104,7 +108,7 @@ export default function Navbar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleLogout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -180,7 +184,7 @@ export default function Navbar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Welcome {JSON.parse(localStorage.getItem("token"))}
           </Typography>
           <Search>
             <SearchIconWrapper>

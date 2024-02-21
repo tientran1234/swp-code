@@ -19,7 +19,7 @@ function EditItemCm({closeEventEdit, handleFlagChange,data}) {
    setId(data.id)
   }, []);
   const commentData = {    
-    name:name,
+    username:name,
     img:img,
     comment:comment,
     id:id

@@ -1,6 +1,43 @@
-import React from 'react'
+import axios from 'axios';
+import React,{useState} from 'react'
+import Swal from 'sweetalert2';
+import useAuthStore from '../../zustand/authStore';
 
 function Form() {
+	const [data,setData]=useState();
+	const toggleLoginForm = useAuthStore((state) => state.toggleLoginForm);
+	const username=localStorage.getItem("name");
+	const formData={
+		id:"",
+		userName:username,
+		comment:data,
+		img:"../../src/assets/images/te1.jpg"
+	}
+	console.log(formData);
+	const handlePost=async(e)=>{
+		e.preventDefault();
+		if(username){
+			const data=await axios.post("https://65c072d325a83926ab96506a.mockapi.io/api/home/user",formData).then((data)=>{
+				if(data.status===400){
+					Swal.fire({
+						title: "Send failed!",
+						text: "You clicked the button!",
+						icon: "error"
+					  });
+				}else{
+					Swal.fire({
+						title: "Send Successfully!",
+						text: "You clicked the button!",
+						icon: "success"
+					  });
+				}
+			})
+			
+		}else{
+			toggleLoginForm();
+		}
+	}
+
   return (
     <div>
         <section class="wthree-row w3-contact py-5">
@@ -19,20 +56,12 @@ function Form() {
 			
 				<div class="col-lg-6 wthree-form-left mt-lg-0 mt-5">
 					<div class="contact-top1">
-						<form action="#" method="get" class="f-color">
-							<div class="form-group">
-								<label>Name</label>
-								<input type="text" class="contact-formw3ls form-control" name="text" id="contactusername" required/>
-							</div>
-							<div class="form-group">
-								<label>Email</label>
-								<input type="email" class="contact-formw3ls form-control" name="email" id="contactemail" required/>
-							</div>
+						<form onSubmit={handlePost} class="f-color">
 							<div class="form-group">
 								<label>Your Message</label>
-								<textarea class="contact-formw3ls form-control" rows="5" id="contactcomment" required></textarea>
+								<textarea onChange={(e)=>setData(e.target.value)} class="contact-formw3ls form-control" rows="5" id="contactcomment" required></textarea>
 							</div>
-							<button type="submit" class="btn submit contact-submit">Submit</button>
+							<button  class="btn submit contact-submit">Submit</button>
 						</form>
 					</div>
 				</div>

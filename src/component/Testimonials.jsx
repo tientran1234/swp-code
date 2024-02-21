@@ -68,7 +68,7 @@ function Testimonials() {
 															<img src={user.img} alt=" " className="img-fluid rounded-circle" />
 														</div>
 														<div className="col-6 agile-right-test text-left mt-4">
-															<h5>{user.name}</h5>
+															<h5>{user.userName}</h5>
 															<p>Tempore Quo</p>
 														</div>
 													</div>
