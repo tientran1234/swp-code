@@ -18,7 +18,7 @@ function AddItemCm({ closeEvent, handleFlagChange ,data}) {
   const [idError, setIdError] = useState(null);
 console.log(data);
   const homeData = {    
-   name:name,
+   userName:name,
    img:img,
    comment:comment,
    id:id

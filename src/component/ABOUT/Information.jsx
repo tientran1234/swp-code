@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Information() {
+	
   return (
     <div>
         <div className="features py-5">

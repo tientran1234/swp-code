@@ -94,7 +94,7 @@ function EditItemCm({closeEventEdit, handleFlagChange,data}) {
           required
           id="outlined-required"
           label="NAME"
-          defaultValue={data.name} sx={{minWidth:"100%"}}
+          defaultValue={data.userName} sx={{minWidth:"100%"}}
           onChange={handleNameChange}
         />
         </Grid>

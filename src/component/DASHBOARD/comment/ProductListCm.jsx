@@ -54,7 +54,7 @@ function ProductList2() {
         console.log(comment);
         const data = {    
             id:comment.id,
-            name:comment.name,
+            userName:comment.userName,
             img:comment.img,
            comment:comment.comment
            };
@@ -126,7 +126,7 @@ function ProductList2() {
             
             <Table dataSource={data}>
                 <Column  title="Id" dataIndex="id" key="firstName" />
-                <Column title="Name" dataIndex="name" key="lastName" />
+                <Column title="Name" dataIndex="userName" key="lastName" />
                 <Column title="Img" dataIndex="img" key="age" />
                 <Column title="Comment" dataIndex="comment" key="address" />
 
