@@ -7,17 +7,27 @@ import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import useRegister from '../zustand/authRegister';
+import { FaCartPlus } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+
 
 export default function BannerHeader() {
 	const toggleLoginForm = useAuthStore((state) => state.toggleLoginForm);
 	const toggleRegisterForm= useRegister((state)=>state.toggleRegisterForm);
 	const [isDropdownVisible, setDropdownVisible] = useState(false);
 	const [isSticky, setSticky] = useState(false);
-	
+	const [logoutDropdownVisible, setLogoutDropdownVisible] = useState(false);
+	const name=localStorage.getItem("name");
 	const toggleDropdown = () => {
 		setDropdownVisible(!isDropdownVisible);
 	};
-	
+	const toggleLogoutDropdown = () => {
+        setLogoutDropdownVisible(!logoutDropdownVisible);
+    };
+	const handleLogout=()=>{
+		localStorage.removeItem("name");
+		window.location.reload();
+	}
 	const handleScroll = () => {
 		const offset = window.scrollY;
 		if (offset > 100) {
@@ -85,6 +95,27 @@ export default function BannerHeader() {
 									</ul>
 								</div>
 							
+							{name?(
+								<>
+
+								<div className="col-4 header-loginw3ls text-lg-center text-center">
+								<p onClick={toggleLogoutDropdown}  className="log" style={{color:"white",cursor:"pointer"}} data-toggle="modal" data-target="#exampleModalCenter1">
+								<FaUser style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> {name}</p>
+								{logoutDropdownVisible && (
+                                        <div className="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                            <span className="dropdown-item" onClick={handleLogout}>
+                                                Logout
+                                            </span>
+                                        </div>
+                                    )}
+							</div>
+							<div className="col-4 header-loginw3ls">
+								<p onClick={toggleRegisterForm} className="log" data-toggle="modal" style={{color:"white",cursor:"pointer"}} data-target="#exampleModalCenter2">
+								<FaCartPlus  style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Cart</p>
+							</div>
+							</>
+							):(
+								<>
 								<div className="col-4 header-loginw3ls text-lg-right text-center">
 									<p onClick={toggleLoginForm}  className="log" style={{color:"white",cursor:"pointer"}} data-toggle="modal" data-target="#exampleModalCenter1">
                                     <CiLogin style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Login</p>
@@ -93,6 +124,13 @@ export default function BannerHeader() {
 									<p onClick={toggleRegisterForm} className="log" data-toggle="modal" style={{color:"white",cursor:"pointer"}} data-target="#exampleModalCenter2">
                                     <BiRegistered style={{fontSize:"20px",transform:"translateY(5px)",color:"red"}} /> Register</p>
 								</div>
+								</>
+							)}
+							
+								
+						
+								
+								
 							</div>
 						</div>
 					</div>
